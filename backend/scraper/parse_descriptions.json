@@ -1,0 +1,4 @@
+{
+  "gpu_parse_description": "Extract the complete and exact model names of NVIDIA GeForce RTX 3000/4000 series GPUs and AMD Radeon RX 6000/7000 series GPUs from the provided text. The model name should include the brand (e.g., NVIDIA or AMD), the series (e.g., GeForce RTX or Radeon RX), and the specific model number (e.g., 3080, 4070, 6800 XT, 7900 XTX). Do not add, modify, or omit any details unless they are part of the official model name. Exclude any additional information such as memory size, overclocking details, or special editions unless it is explicitly part of the official model name as presented in the text."
+
+}
