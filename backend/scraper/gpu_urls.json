@@ -1,12 +1,12 @@
 {
-  "kisildalur": {
-      "geforce_4000": "https://kisildalur.is/category/12?class=GeForce%204000",
-      "geforce_3000": "https://kisildalur.is/category/12?class=GeForce%203000",
-      "radeon_6000": "https://kisildalur.is/category/12?class=Radeon%206000",
-      "radeon_7000": "https://kisildalur.is/category/12?class=Radeon%207000"
-  },
-  "tolvutaekni": {
-      "nvidia": "https://tolvutaekni.is/collections/skjakort/nvidia-geforce",
-      "amd": "https://tolvutaekni.is/collections/skjakort/amd-radeon"
-  }
+  "kisildalur": [
+    "https://kisildalur.is/category/12?class=GeForce%204000",
+    "https://kisildalur.is/category/12?class=GeForce%203000",
+    "https://kisildalur.is/category/12?class=Radeon%206000",
+    "https://kisildalur.is/category/12?class=Radeon%207000"
+  ],
+  "tolvutaekni": [
+    "https://tolvutaekni.is/collections/skjakort/nvidia-geforce",
+    "https://tolvutaekni.is/collections/skjakort/amd-radeon"
+  ]
 }

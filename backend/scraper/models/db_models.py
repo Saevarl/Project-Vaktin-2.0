@@ -4,23 +4,38 @@ from sqlalchemy.orm import relationship, declarative_base
 
 Base = declarative_base()
 
+class GPUModel(Base):
+    __tablename__ = 'gpu_models'
+
+    id = Column(Integer, primary_key=True)
+    model = Column(String(100), nullable=False)
+    brand = Column(String(50), nullable=True)
+    series = Column(String(50), nullable=True)
+    vram = Column(String(20), nullable=True)
+    benchmark_score = Column(Integer, nullable=True)
+
+    # One-to-many relationship with GPUs
+    gpus = relationship("GPU", back_populates="model")
+
+    def __repr__(self):
+        return f"<GPUModel(model={self.model}, manufacturer={self.manufacturer}, brand={self.brand}, series={self.series}, vram={self.vram}, benchmark_score={self.benchmark_score})>"
+
 class GPU(Base):
     __tablename__ = 'gpus'
 
     id = Column(Integer, primary_key=True)
-    model = Column(String(100), nullable=False)
-    manufacturer = Column(String(50), nullable=False)
     name = Column(String(255), nullable=False, unique=True)
-    brand = Column(String(50), nullable=True)
-    series = Column(String(50), nullable=True)
-    vram = Column(String(20), nullable=True)
+    manufacturer = Column(String(50), nullable=False)
     link = Column(String(255), nullable=True)
+    model_id = Column(Integer, ForeignKey('gpu_models.id'), nullable=False)
 
+    # Many-to-one relationship with GPUModel
+    model = relationship("GPUModel", back_populates="gpus")
     # One-to-many relationship with Prices
     prices = relationship("Price", back_populates="gpu")
 
     def __repr__(self):
-        return f"<GPU(name={self.name}, model={self.model}, manufacturer={self.manufacturer}, brand={self.brand}, series={self.series}, vram={self.vram})>"
+        return f"<GPU(name={self.name}, link={self.link})>"
 
 class Store(Base):
     __tablename__ = 'stores'
@@ -35,7 +50,6 @@ class Store(Base):
 
     def __repr__(self):
         return f"<Store(name={self.name}, website_url={self.website_url})>"
-
 
 class Price(Base):
     __tablename__ = 'prices'
